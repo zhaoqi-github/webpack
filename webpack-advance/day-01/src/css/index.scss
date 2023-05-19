@@ -1,0 +1,19 @@
+$baseCls:"webpack-img";
+
+.#{$baseCls} {
+  display: flex;
+  justify-content: space-between;
+  div{
+    width: 230px;
+    height: 230px;
+    &.box1{
+      background: url(../assets/img/1.png) no-repeat center /contain;
+    }
+    &.box2{
+      background: url(../assets/img/2.svg) no-repeat center /contain;
+    }
+    &.box3{
+      background: url(../assets/img/3.png) no-repeat center /contain;
+    }
+  }
+}
