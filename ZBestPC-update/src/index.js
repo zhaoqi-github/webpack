@@ -18,3 +18,6 @@ export default { // 这种不行
 console.log(get({ a: 1 }, 'a')) */
 
 // 3. 同一文件下 treeshaking 触发条件是 mode=production
+
+import { get } from 'lodash-es'
+console.log(get({ a: 1 }, 'a'))

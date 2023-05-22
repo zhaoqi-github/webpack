@@ -47,8 +47,27 @@ module.exports = {
     ]
   },
   optimization: {
-    minimize: true, 
+    minimize: true, // development 模式默认不压缩，true 会开启压缩
     minimizer: [new TerserWebpackPlugin(), new CssMinimizerPlugin()],
+    splitChunks: {
+      chunks: 'all',
+      minSize: 300 * 1024, // 300 * 1024 => 大于 300kb 的单独打包 common.js
+      name: 'common',
+      // 对某个库单独打包
+      cacheGroups: {
+        // 单独打包 jquery
+        jquery: {
+          name: 'jquery', // 打包完的 name
+          test: /jquery/, // 匹配
+          chunks: 'all' 
+        },
+        'lodash-es': {
+          name: 'lodash-es',
+          test: /lodash-es/,
+          chunks: 'all'
+        }
+      }
+    }
   },
   plugins: [
     new HtmlWebpackPlugin({
