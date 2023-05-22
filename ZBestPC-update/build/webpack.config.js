@@ -5,16 +5,17 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const MinCssExtractPlugin = require('mini-css-extract-plugin')
 const TerserWebpackPlugin = require("terser-webpack-plugin")
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
   mode: 'development',
   entry: {
-    index: './src/index.js',
-    login: './src/login.js'
+    index: path.resolve(__dirname, '../src/index.js'),
+    login: path.resolve(__dirname, '../src/login.js'),
   },
   output: {
     filename: 'js/[name].js',
-    path: path.resolve(__dirname, './dist')
+    path: path.resolve(__dirname, '../dist')
   },
   devServer: {
     static: {
@@ -66,7 +67,7 @@ module.exports = {
         jquery: {
           name: 'jquery', // 打包完的 name
           test: /jquery/, // 匹配
-          chunks: 'all' 
+          chunks: 'all'
         },
         'lodash-es': {
           name: 'lodash-es',
@@ -79,12 +80,12 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: './src/index.html',
+      template: path.resolve(__dirname, '../src/index.html'),
       chunks: ['index']
     }),
     new HtmlWebpackPlugin({
       filename: 'login.html',
-      template: './src/login.html',
+      template: path.resolve(__dirname, '../src/login.html'),
       chunks: ['login']
     }),
     new webpack.ProvidePlugin({
@@ -94,14 +95,15 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: path.resolve(__dirname, './src/img'),
-          to: path.resolve(__dirname, './dist/img')
+          from: path.resolve(__dirname, '../src/img'),
+          to: path.resolve(__dirname, '../dist/img')
         }
       ]
     }),
     new MinCssExtractPlugin({
       filename: 'css/[name]-[contenthash:8].css',
       chunkFilename: 'css/[name]-[contenthash:8].css',
-    })
+    }),
+    new CleanWebpackPlugin()
   ],
 }
