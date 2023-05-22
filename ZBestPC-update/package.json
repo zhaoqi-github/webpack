@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@vue/compiler-sfc": "^3.3.4",
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^11.0.0",
     "css-minimizer-webpack-plugin": "^5.0.0",
@@ -17,7 +18,10 @@
     "html-webpack-plugin": "^5.5.1",
     "lodash-es": "^4.17.21",
     "mini-css-extract-plugin": "^2.7.6",
+    "style-loader": "^3.3.3",
     "terser-webpack-plugin": "^5.3.9",
+    "vue-loader": "^15.9.8",
+    "vue-template-compiler": "^2.7.14",
     "webpack": "^5.83.1",
     "webpack-cli": "^5.1.1",
     "webpack-dev-server": "^4.15.0"
@@ -26,6 +30,6 @@
     "css-loader": "^6.7.4",
     "flexslider": "^2.7.2",
     "jquery": "^3.7.0",
-    "style-loader": "^3.3.3"
+    "vue": "^3.3.4"
   }
 }
