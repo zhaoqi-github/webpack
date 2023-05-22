@@ -3,6 +3,8 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const MinCssExtractPlugin = require('mini-css-extract-plugin')
+const TerserWebpackPlugin = require("terser-webpack-plugin")
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 
 module.exports = {
   mode: 'development',
@@ -44,6 +46,10 @@ module.exports = {
       }
     ]
   },
+  optimization: {
+    minimize: true, 
+    minimizer: [new TerserWebpackPlugin(), new CssMinimizerPlugin()],
+  },
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'index.html',
@@ -71,5 +77,5 @@ module.exports = {
       filename: 'css/[name]-[contenthash:8].css',
       chunkFilename: 'css/[name]-[contenthash:8].css',
     })
-  ]
+  ],
 }
