@@ -2,12 +2,13 @@
   <div id="app">{{ message }}</div>
 </template>
 
-<script lang='ts'>
-import { defineComponent } from 'vue'
+<script>
+import { defineComponent, ref } from 'vue'
 export default defineComponent({
-  data() {
+  setup(){
+    const message = ref('hello world')
     return {
-      message: 'hello test'
+      message
     }
   }
 })
