@@ -1,7 +1,9 @@
 const path = require('path')
+const webpack = require('webpack');
+const FooterPlugin = require('./plugin/FooterPlugin')
 
 module.exports = {
-  mode:'development',
+  mode:'development', 
   devtool: 'source-map',
   entry: './src/index.js',
   output: {
@@ -19,5 +21,13 @@ module.exports = {
         use: [path.resolve(__dirname, './loader/imooc-loader.js')]
       }
     ]
-  }
+  },
+  plugins: [
+    new webpack.BannerPlugin({
+      banner: '测试BannerPlugin'
+    }),
+    new FooterPlugin({
+      banner: '测试FooterPlugin'
+    })
+  ]
 }
