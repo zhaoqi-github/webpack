@@ -1,11 +1,15 @@
 <template>
-  <div id="app">{{ message }}</div>
+  <!-- <div id="app">{{ message }}</div> -->
+  <!-- <Home></Home> -->
+  <router-view />
 </template>
 
 <script>
 import { defineComponent, ref } from 'vue'
+
 export default defineComponent({
-  setup(){
+  name: 'App',
+  setup() {
     const message = ref('hello world')
     return {
       message
