@@ -6,8 +6,10 @@
   "scripts": {
     "start": "webpack-dev-server",
     "start:vue": "webpack-dev-server --config ./build/webpack.vue.config.js",
+    "start:map": "webpack-dev-server --config ./build/webpack.vue.mpa.config.js",
     "build": "webpack --config build/webpack.config.js",
-    "build:vue": "webpack --config build/webpack.vue.config.js"
+    "build:vue": "webpack --config build/webpack.vue.config.js",
+    "build:mpa": "webpack --config build/webpack.vue.mpa.config.js"
   },
   "author": "",
   "license": "ISC",
